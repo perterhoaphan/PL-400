@@ -1,0 +1,3258 @@
+[
+  {
+    "id": 1,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which technology should you use to implement synchronous processing against an external system?",
+    "options": [
+      "Azure Service Bus",
+      "Webhook",
+      "Azure Event Grid",
+      "Azure Event Hub"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Webhook is used to implement synchronous processing against an external system. Azure Service Bus is for async processing."
+  },
+  {
+    "id": 2,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which Azure service is used for high-scale asynchronous processing and queueing?",
+    "options": [
+      "Webhook",
+      "Azure Event Grid",
+      "Azure Service Bus",
+      "Azure Functions"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Azure Service Bus is used for high scale asynchronous processing/queueing, not synchronous processing."
+  },
+  {
+    "id": 3,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What does the Upsert operation do in Dataverse?",
+    "options": [
+      "Only creates new records",
+      "Only updates existing records",
+      "Updates the record if it exists or creates a new one if it does not",
+      "Deletes and recreates the record"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Upsert updates the record if it exists or creates a new record if it does not exist."
+  },
+  {
+    "id": 4,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What is a plug-in in Microsoft Dataverse?",
+    "options": [
+      "A JavaScript library",
+      "A .NET assembly uploaded to Dataverse",
+      "A Power Automate flow",
+      "A canvas app component"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "A plug-in is a .NET assembly that you can upload to Microsoft Dataverse to extend its functionality."
+  },
+  {
+    "id": 5,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which property gets the custom properties that are shared between plug-ins?",
+    "options": [
+      "PreEntityImages",
+      "PostEntityImages",
+      "SharedVariables",
+      "OutputParameters"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "SharedVariables gets the custom properties that are shared between plug-ins registered on the same message pipeline."
+  },
+  {
+    "id": 6,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which property gets the entity properties BEFORE the core platform operation?",
+    "options": [
+      "PostEntityImages",
+      "SharedVariables",
+      "OutputParameters",
+      "PreEntityImages"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "PreEntityImages gets the properties of the primary entity before the core platform operation."
+  },
+  {
+    "id": 7,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which property gets the entity properties AFTER the core platform operation?",
+    "options": [
+      "PreEntityImages",
+      "SharedVariables",
+      "PostEntityImages",
+      "InputParameters"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "PostEntityImages gets the properties of the primary entity after the core platform operation."
+  },
+  {
+    "id": 8,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What does ExecuteTransactionRequest do?",
+    "options": [
+      "Executes a single update operation",
+      "Allows batch update of rows and works as a single transaction",
+      "Rolls back all database changes",
+      "Creates a new database transaction log"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "ExecuteTransactionRequest allows for the update of rows and works as a single transaction - if one fails, all are rolled back."
+  },
+  {
+    "id": 9,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "When plug-in execution time is increasing, what is the recommended approach?",
+    "options": [
+      "Increase the timeout setting",
+      "Move logic to Azure Function and register a webhook",
+      "Add more plug-in steps",
+      "Convert to a synchronous workflow"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Create Azure Function, refactor logic, publish app, and register a webhook to handle long-running operations externally."
+  },
+  {
+    "id": 10,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What format is used when sending data from a webhook to an Azure Function?",
+    "options": [
+      "XML format",
+      "CSV format",
+      "JSON format",
+      "Binary format"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "JSON format is used when an external system communicates with Azure Functions via webhooks."
+  },
+  {
+    "id": 11,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What is the execution context object sent from a webhook to an Azure Function?",
+    "options": [
+      "PluginContext",
+      "ExecutionContext",
+      "RemoteExecutionContext",
+      "ServiceContext"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "RemoteExecutionContext is the context object sent from a webhook or published directly to the ServiceEndpoint."
+  },
+  {
+    "id": 12,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "Which header should you use to only synchronize data that was not previously synchronized?",
+    "options": [
+      "Prefer: odata.maxpagesize",
+      "Prefer: odata.track-changes",
+      "Prefer: odata.include-annotations",
+      "Prefer: return=representation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Prefer: odata.track-changes enables delta tracking to only sync data that changed since the last sync."
+  },
+  {
+    "id": 13,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What should you do to delete a message as soon as it is read from Azure Service Bus?",
+    "options": [
+      "Set AutoComplete",
+      "Set ReceiveMode",
+      "Set TimeToLive",
+      "Set MaxDeliveryCount"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "ReceiveMode controls how messages are received - ReceiveAndDelete removes it immediately upon reading."
+  },
+  {
+    "id": 14,
+    "category": "Extend the Platform",
+    "type": "multi",
+    "question": "Which of the following are valid plug-in execution context properties? (Select TWO)",
+    "options": [
+      "SharedVariables",
+      "FormContext",
+      "PreEntityImages",
+      "ClientContext"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explanation": "SharedVariables and PreEntityImages are valid plug-in execution context properties. FormContext is client-side only."
+  },
+  {
+    "id": 15,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "At which stage should a plug-in register when it creates a record?",
+    "options": [
+      "PreValidation",
+      "PreOperation",
+      "PostOperation",
+      "MainOperation"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "When a plug-in creates a record, it should register at the PostOperation stage."
+  },
+  {
+    "id": 16,
+    "category": "Extend the Platform",
+    "type": "single",
+    "question": "What does OutputParameters contain in a plug-in context?",
+    "options": [
+      "Input data from the request",
+      "Parameters of the response message after the core platform operation",
+      "Entity metadata",
+      "User credentials"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "OutputParameters gets the parameters of the response message after the core platform operation completes."
+  },
+  {
+    "id": 17,
+    "category": "Technical Design",
+    "type": "single",
+    "question": "When should client scripting be used instead of business rules?",
+    "options": [
+      "Always",
+      "When declarative business rules do not support the requirement",
+      "For server-side validation only",
+      "When working with canvas apps"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Client scripting should be used as an alternative when declarative business rules do not support the requirement."
+  },
+  {
+    "id": 18,
+    "category": "Technical Design",
+    "type": "single",
+    "question": "What do business rules provide?",
+    "options": [
+      "Complex coding interface",
+      "Simple interface to implement and maintain fast-changing rules",
+      "Database migration tools",
+      "API endpoint management"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Business rules provide a simple interface to implement and maintain fast-changing business logic without code."
+  },
+  {
+    "id": 19,
+    "category": "Technical Design",
+    "type": "multi",
+    "question": "Which services can be accessed synchronously as part of automation? (Select TWO)",
+    "options": [
+      "Power Automate cloud flow",
+      "Microsoft Dataverse classic workflow",
+      "Dataverse plug-ins",
+      "Azure Logic Apps"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "explanation": "Dataverse classic workflows and plug-ins can be accessed synchronously as part of automation."
+  },
+  {
+    "id": 20,
+    "category": "Technical Design",
+    "type": "single",
+    "question": "When an app integrates with an external system, what type of processing is recommended?",
+    "options": [
+      "Synchronous",
+      "Asynchronous",
+      "Batch only",
+      "Manual"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "When integrating with external systems, asynchronous processing is recommended to avoid blocking operations."
+  },
+  {
+    "id": 21,
+    "category": "Technical Design",
+    "type": "single",
+    "question": "What should you use when explicit user credentials must not be required for authentication?",
+    "options": [
+      "Basic authentication",
+      "API key",
+      "Client secret",
+      "Manual login"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Client secret allows application-level authentication without requiring explicit user credentials."
+  },
+  {
+    "id": 22,
+    "category": "Technical Design",
+    "type": "single",
+    "question": "Which authentication method should you use for a public site that does not need encryption?",
+    "options": [
+      "OAuth 2.0",
+      "Client secret",
+      "Basic authentication",
+      "SAML"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Basic authentication is the simplest method and can be used when encryption is not required."
+  },
+  {
+    "id": 23,
+    "category": "Build Solutions",
+    "type": "single",
+    "question": "Which command initializes a new Power Apps Component Framework (PCF) project?",
+    "options": [
+      "pac solution init",
+      "pac pcf init",
+      "npm init pcf",
+      "dotnet new pcf"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "pac pcf init initializes a new PCF project. Then npm install for dependencies and npm run build to compile."
+  },
+  {
+    "id": 24,
+    "category": "Build Solutions",
+    "type": "single",
+    "question": "Which command is used to deploy a PCF control directly to a Dataverse environment?",
+    "options": [
+      "pac pcf push",
+      "pac solution export",
+      "npm run deploy",
+      "pac auth push"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "pac pcf push deploys the PCF control directly to the connected Dataverse environment."
+  },
+  {
+    "id": 25,
+    "category": "Build Solutions",
+    "type": "single",
+    "question": "Which command creates an authentication connection to a Dataverse environment?",
+    "options": [
+      "pac pcf init",
+      "pac auth create",
+      "pac solution connect",
+      "pac env login"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "pac auth create establishes an authentication connection to a Dataverse environment."
+  },
+  {
+    "id": 26,
+    "category": "Build Solutions",
+    "type": "single",
+    "question": "Which command initializes a solution project for packaging?",
+    "options": [
+      "pac pcf init",
+      "pac auth create",
+      "pac solution init",
+      "pac package init"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "pac solution init initializes a new solution project that can be used to package components."
+  },
+  {
+    "id": 27,
+    "category": "Build Solutions",
+    "type": "multi",
+    "question": "Which steps are needed to create a PCF control? (Select THREE)",
+    "options": [
+      "pac pcf init",
+      "npm install",
+      "npm run build",
+      "pac auth delete"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Creating a PCF control requires: pac pcf init (initialize), npm install (install dependencies), npm run build (compile)."
+  },
+  {
+    "id": 28,
+    "category": "Build Solutions",
+    "type": "single",
+    "question": "How do you remove a business rule from production?",
+    "options": [
+      "Delete directly in production",
+      "Remove in dev environment, export as managed solution, import to production",
+      "Disable the rule in production settings",
+      "Use pac solution delete"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Remove the rule in dev environment, export as a managed solution, and import to production to properly remove it."
+  },
+  {
+    "id": 29,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What should you check when a Power App runs slowly or has delays switching pages?",
+    "options": [
+      "Network bandwidth",
+      "Service Performance in Power Apps Analytics",
+      "Database query logs",
+      "Browser console errors"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Service Performance in Power Apps Analytics helps diagnose slow performance and page switching delays."
+  },
+  {
+    "id": 30,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What is Site Map validation used for?",
+    "options": [
+      "Validating data entries",
+      "Navigation bar of Model-driven apps only",
+      "Canvas app layouts",
+      "API endpoint testing"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Site Map validation is only for the navigation bar (sitemap) of Model-driven apps."
+  },
+  {
+    "id": 31,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What tool is used to check solution quality and find potential issues?",
+    "options": [
+      "Power Apps Monitor",
+      "Solution Checker",
+      "Flow Checker",
+      "App Checker"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Solution Checker (Power Apps Checker application user) analyzes solutions for best practices and potential issues."
+  },
+  {
+    "id": 32,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What should you do when a Power App embedded in Teams runs slowly?",
+    "options": [
+      "Clear cache",
+      "Preload app",
+      "Reinstall Teams",
+      "Reduce screen count"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Preloading the app improves performance when a Power App is embedded in Microsoft Teams."
+  },
+  {
+    "id": 33,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What should you do when you cannot add a personal app in Teams?",
+    "options": [
+      "Reinstall the app",
+      "Change permission custom app or setup policy",
+      "Clear Teams cache",
+      "Update Teams client"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Change permission for custom apps or update the setup policy to allow adding personal apps in Teams."
+  },
+  {
+    "id": 34,
+    "category": "Power Apps",
+    "type": "single",
+    "question": "What should you check when Solution Checker reports missing security roles?",
+    "options": [
+      "Import Security",
+      "Export Customizations",
+      "Reset Roles",
+      "Delete Solution"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "When Solution Checker reports missing security roles, check Export Customizations to ensure roles are included."
+  },
+  {
+    "id": 35,
+    "category": "User Experience",
+    "type": "single",
+    "question": "Which method refreshes the ribbon/command bar in a model-driven app?",
+    "options": [
+      "formContext.data.refresh()",
+      "formContext.ui.refreshRibbon()",
+      "Xrm.Page.refreshUI()",
+      "formContext.ui.reload()"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "formContext.ui.refreshRibbon() refreshes the ribbon/command bar, often used after business rule conditions change."
+  },
+  {
+    "id": 36,
+    "category": "User Experience",
+    "type": "single",
+    "question": "Where do you edit the command bar when App Designer is open?",
+    "options": [
+      "Form editor",
+      "Edit command bar option in App Designer",
+      "Site map editor",
+      "Solution explorer"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "When App Designer is open, use the Edit command bar option to customize command bar buttons."
+  },
+  {
+    "id": 37,
+    "category": "User Experience",
+    "type": "single",
+    "question": "What type of expression should you use to create a reminder task when a button is clicked?",
+    "options": [
+      "Visibility expression",
+      "OnSelect expression",
+      "Validation expression",
+      "Filter expression"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "OnSelect expression defines the action to perform when a command button is clicked."
+  },
+  {
+    "id": 38,
+    "category": "User Experience",
+    "type": "single",
+    "question": "What expression type controls whether a button is displayed to specific users?",
+    "options": [
+      "OnSelect expression",
+      "Visibility expression",
+      "Security expression",
+      "Filter expression"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Visibility expression controls whether a button is displayed based on conditions like user roles."
+  },
+  {
+    "id": 39,
+    "category": "User Experience",
+    "type": "single",
+    "question": "How do you display a message on a form without code?",
+    "options": [
+      "JavaScript alert",
+      "Business rule",
+      "Plug-in",
+      "Power Automate notification"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Business rules can display messages on forms without writing any code."
+  },
+  {
+    "id": 40,
+    "category": "User Experience",
+    "type": "single",
+    "question": "How do you prevent a business rule message from displaying?",
+    "options": [
+      "Delete the form",
+      "Update the business rule",
+      "Modify JavaScript",
+      "Change security roles"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Update the business rule conditions or actions to prevent the message from being displayed."
+  },
+  {
+    "id": 41,
+    "category": "User Experience",
+    "type": "single",
+    "question": "What should you do when calling a function in a different web resource results in an error?",
+    "options": [
+      "Rewrite the function inline",
+      "Add the missing web resource as a dependency",
+      "Merge all web resources into one",
+      "Use a plug-in instead"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Add the missing web resource as a dependency to resolve cross-reference errors between web resources."
+  },
+  {
+    "id": 42,
+    "category": "User Experience",
+    "type": "single",
+    "question": "What should you use to show or hide fields on a form without writing code?",
+    "options": [
+      "JavaScript",
+      "Business rules",
+      "CSS styling",
+      "Canvas app embedding"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Business rules provide a no-code way to show or hide fields based on conditions."
+  },
+  {
+    "id": 43,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What authentication method should you use to retrieve data from an external API?",
+    "options": [
+      "Basic Auth",
+      "API Key",
+      "OAuth",
+      "Anonymous"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "OAuth is the recommended authentication method for retrieving data from external APIs securely."
+  },
+  {
+    "id": 44,
+    "category": "Integrations",
+    "type": "single",
+    "question": "When an application connects on a nightly basis, what should you configure?",
+    "options": [
+      "Interactive user login",
+      "Create application user in Dataverse and assign security role",
+      "Scheduled Power Automate flow only",
+      "Manual import process"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Create an application user in Dataverse, assign security role, and use application ID with client secret."
+  },
+  {
+    "id": 45,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What must you do when the system must not authenticate using a user account?",
+    "options": [
+      "Use anonymous access",
+      "Register in Azure AD",
+      "Use basic authentication",
+      "Create a service account"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Register the application in Azure AD to use app-based authentication without user credentials."
+  },
+  {
+    "id": 46,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What are Web API Functions used for?",
+    "options": [
+      "Operations that modify data",
+      "Operations that do not have side effects (read-only)",
+      "Creating new entities",
+      "Deleting records"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Web API Functions are for operations that do not have side effects - they are read-only operations."
+  },
+  {
+    "id": 47,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What are Web API Actions used for?",
+    "options": [
+      "Read-only queries",
+      "Metadata retrieval",
+      "Operations that allow side effects and data modification",
+      "Schema validation"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Web API Actions allow side effects and data modification, unlike Functions which are read-only."
+  },
+  {
+    "id": 48,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What is required to enable a single-page web application to access Dataverse Web API?",
+    "options": [
+      "Server-side proxy",
+      "Cross-Origin Resource Sharing (CORS)",
+      "VPN connection",
+      "Service endpoint registration"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "CORS (Cross-Origin Resource Sharing) must be configured for single-page applications to access Dataverse Web API."
+  },
+  {
+    "id": 49,
+    "category": "Integrations",
+    "type": "multi",
+    "question": "Which authentication libraries can be used for single-page web applications? (Select TWO)",
+    "options": [
+      "Azure Active Directory Authentication Library (ADAL)",
+      "Microsoft Authentication Library (MSAL)",
+      "Simple Authentication Library (SAL)",
+      "Basic Auth Library (BAL)"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "explanation": "Both ADAL and MSAL can be used. MSAL is the newer recommended library replacing ADAL."
+  },
+  {
+    "id": 50,
+    "category": "Integrations",
+    "type": "single",
+    "question": "What does the expression outputs('Get_Item').statusCode return in Power Automate?",
+    "options": [
+      "The full response body",
+      "The status code at runtime",
+      "The error message",
+      "The request headers"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "outputs('Get_Item').statusCode returns the HTTP status code at runtime from the Get_Item action."
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "JavaScript",
+      "Synchronous Plug-in",
+      "Business Rule",
+      "Power Automate Cloud Flow"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 51,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac auth create",
+      "npm start",
+      "pac pcf push",
+      "pac pcf init"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 52,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Solution Checker",
+      "App Designer",
+      "Plugin Registration Tool",
+      "Power Apps Monitor"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 53,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "JavaScript",
+      "Plug-in",
+      "Business Rule",
+      "Power Automate"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 54,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PreOperation",
+      "PostOperation",
+      "MainOperation",
+      "PreValidation"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 55,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure Service Bus",
+      "Azure SQL",
+      "Webhook",
+      "Azure Event Hub"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 56,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Forms Auth",
+      "Basic Authentication",
+      "OAuth Client Credentials",
+      "Anonymous"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 57,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "UpsertRequest",
+      "ExecuteTransactionRequest",
+      "CreateRequest"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 58,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Solution Checker",
+      "F12 Developer Tools",
+      "Plugin Profiler",
+      "Power Automate"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 59,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "updateView()",
+      "getOutputs()",
+      "destroy()",
+      "init()"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 60,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "JavaScript",
+      "Synchronous Plug-in",
+      "Business Rule",
+      "Power Automate Cloud Flow"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 61,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac auth create",
+      "npm start",
+      "pac pcf init",
+      "pac pcf push"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 62,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "App Designer",
+      "Solution Checker",
+      "Power Apps Monitor",
+      "Plugin Registration Tool"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 63,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Plug-in",
+      "Power Automate",
+      "JavaScript",
+      "Business Rule"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 64,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PreValidation",
+      "PreOperation",
+      "MainOperation",
+      "PostOperation"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 65,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure SQL",
+      "Azure Event Hub",
+      "Webhook",
+      "Azure Service Bus"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 66,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Basic Authentication",
+      "Anonymous",
+      "Forms Auth",
+      "OAuth Client Credentials"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 67,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "UpsertRequest",
+      "ExecuteTransactionRequest",
+      "CreateRequest"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 68,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Power Automate",
+      "F12 Developer Tools",
+      "Plugin Profiler",
+      "Solution Checker"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 69,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "destroy()",
+      "init()",
+      "updateView()",
+      "getOutputs()"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 70,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "Power Automate Cloud Flow",
+      "JavaScript",
+      "Business Rule",
+      "Synchronous Plug-in"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 71,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac pcf push",
+      "pac auth create",
+      "npm start",
+      "pac pcf init"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 72,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Solution Checker",
+      "App Designer",
+      "Plugin Registration Tool",
+      "Power Apps Monitor"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 73,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Plug-in",
+      "Power Automate",
+      "Business Rule",
+      "JavaScript"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 74,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PostOperation",
+      "PreValidation",
+      "PreOperation",
+      "MainOperation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 75,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure Service Bus",
+      "Azure SQL",
+      "Azure Event Hub",
+      "Webhook"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 76,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Anonymous",
+      "Forms Auth",
+      "Basic Authentication",
+      "OAuth Client Credentials"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 77,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "UpsertRequest",
+      "ExecuteTransactionRequest",
+      "CreateRequest"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 78,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Power Automate",
+      "Plugin Profiler",
+      "Solution Checker",
+      "F12 Developer Tools"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 79,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "destroy()",
+      "init()",
+      "updateView()",
+      "getOutputs()"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 80,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "JavaScript",
+      "Power Automate Cloud Flow",
+      "Business Rule",
+      "Synchronous Plug-in"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 81,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac pcf push",
+      "pac auth create",
+      "npm start",
+      "pac pcf init"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 82,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Power Apps Monitor",
+      "Solution Checker",
+      "Plugin Registration Tool",
+      "App Designer"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 83,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "JavaScript",
+      "Power Automate",
+      "Business Rule",
+      "Plug-in"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 84,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PreOperation",
+      "PostOperation",
+      "PreValidation",
+      "MainOperation"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 85,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure Service Bus",
+      "Webhook",
+      "Azure SQL",
+      "Azure Event Hub"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 86,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Basic Authentication",
+      "OAuth Client Credentials",
+      "Forms Auth",
+      "Anonymous"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 87,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteTransactionRequest",
+      "CreateRequest",
+      "ExecuteMultipleRequest",
+      "UpsertRequest"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 88,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Plugin Profiler",
+      "Solution Checker",
+      "Power Automate",
+      "F12 Developer Tools"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 89,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "getOutputs()",
+      "init()",
+      "updateView()",
+      "destroy()"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 90,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "Business Rule",
+      "Synchronous Plug-in",
+      "Power Automate Cloud Flow",
+      "JavaScript"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 91,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "npm start",
+      "pac pcf init",
+      "pac pcf push",
+      "pac auth create"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 92,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "App Designer",
+      "Solution Checker",
+      "Plugin Registration Tool",
+      "Power Apps Monitor"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 93,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Power Automate",
+      "Business Rule",
+      "Plug-in",
+      "JavaScript"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 94,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PreOperation",
+      "PreValidation",
+      "MainOperation",
+      "PostOperation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 95,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Webhook",
+      "Azure Event Hub",
+      "Azure SQL",
+      "Azure Service Bus"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 96,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Anonymous",
+      "Basic Authentication",
+      "Forms Auth",
+      "OAuth Client Credentials"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 97,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "CreateRequest",
+      "ExecuteTransactionRequest",
+      "UpsertRequest"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 98,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Power Automate",
+      "Solution Checker",
+      "Plugin Profiler",
+      "F12 Developer Tools"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 99,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "init()",
+      "updateView()",
+      "getOutputs()",
+      "destroy()"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 100,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "Business Rule",
+      "Synchronous Plug-in",
+      "JavaScript",
+      "Power Automate Cloud Flow"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 101,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac pcf init",
+      "pac auth create",
+      "npm start",
+      "pac pcf push"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 102,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Power Apps Monitor",
+      "App Designer",
+      "Plugin Registration Tool",
+      "Solution Checker"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 103,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Business Rule",
+      "Plug-in",
+      "Power Automate",
+      "JavaScript"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 104,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "MainOperation",
+      "PreValidation",
+      "PostOperation",
+      "PreOperation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 105,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure Event Hub",
+      "Azure SQL",
+      "Azure Service Bus",
+      "Webhook"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 106,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "OAuth Client Credentials",
+      "Basic Authentication",
+      "Forms Auth",
+      "Anonymous"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 107,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "CreateRequest",
+      "UpsertRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 108,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "F12 Developer Tools",
+      "Power Automate",
+      "Plugin Profiler",
+      "Solution Checker"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 109,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "getOutputs()",
+      "destroy()",
+      "updateView()",
+      "init()"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 110,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "Synchronous Plug-in",
+      "JavaScript",
+      "Business Rule",
+      "Power Automate Cloud Flow"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 111,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac auth create",
+      "npm start",
+      "pac pcf push",
+      "pac pcf init"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 112,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Solution Checker",
+      "App Designer",
+      "Power Apps Monitor",
+      "Plugin Registration Tool"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 113,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Business Rule",
+      "JavaScript",
+      "Power Automate",
+      "Plug-in"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 114,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "MainOperation",
+      "PreValidation",
+      "PostOperation",
+      "PreOperation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 115,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Webhook",
+      "Azure Service Bus",
+      "Azure Event Hub",
+      "Azure SQL"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 116,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Basic Authentication",
+      "Forms Auth",
+      "OAuth Client Credentials",
+      "Anonymous"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 117,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "UpsertRequest",
+      "ExecuteMultipleRequest",
+      "CreateRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 118,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Solution Checker",
+      "Power Automate",
+      "Plugin Profiler",
+      "F12 Developer Tools"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 119,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "init()",
+      "destroy()",
+      "updateView()",
+      "getOutputs()"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 120,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "JavaScript",
+      "Synchronous Plug-in",
+      "Business Rule",
+      "Power Automate Cloud Flow"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 121,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac pcf init",
+      "pac auth create",
+      "pac pcf push",
+      "npm start"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 122,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Plugin Registration Tool",
+      "App Designer",
+      "Power Apps Monitor",
+      "Solution Checker"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 123,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Plug-in",
+      "Business Rule",
+      "Power Automate",
+      "JavaScript"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 124,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "MainOperation",
+      "PreValidation",
+      "PreOperation",
+      "PostOperation"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 125,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Webhook",
+      "Azure SQL",
+      "Azure Service Bus",
+      "Azure Event Hub"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 126,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Basic Authentication",
+      "Anonymous",
+      "Forms Auth",
+      "OAuth Client Credentials"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 127,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "CreateRequest",
+      "UpsertRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 128,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Solution Checker",
+      "F12 Developer Tools",
+      "Plugin Profiler",
+      "Power Automate"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 129,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "updateView()",
+      "destroy()",
+      "getOutputs()",
+      "init()"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 130,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "JavaScript",
+      "Power Automate Cloud Flow",
+      "Business Rule",
+      "Synchronous Plug-in"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 131,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac pcf push",
+      "npm start",
+      "pac pcf init",
+      "pac auth create"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 132,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "Power Apps Monitor",
+      "App Designer",
+      "Solution Checker",
+      "Plugin Registration Tool"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 133,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Plug-in",
+      "Power Automate",
+      "Business Rule",
+      "JavaScript"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 134,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "MainOperation",
+      "PostOperation",
+      "PreValidation",
+      "PreOperation"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 135,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Azure Service Bus",
+      "Azure SQL",
+      "Azure Event Hub",
+      "Webhook"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 136,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Basic Authentication",
+      "OAuth Client Credentials",
+      "Forms Auth",
+      "Anonymous"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 137,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "UpsertRequest",
+      "CreateRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 138,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Power Automate",
+      "F12 Developer Tools",
+      "Solution Checker",
+      "Plugin Profiler"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 139,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "updateView()",
+      "destroy()",
+      "getOutputs()",
+      "init()"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 140,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "Which architecture component is best for long-running background tasks?",
+    "options": [
+      "Business Rule",
+      "Power Automate Cloud Flow",
+      "JavaScript",
+      "Synchronous Plug-in"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Power Automate Cloud Flows are ideal for asynchronous, long-running tasks.",
+    "id": 141,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which command deploys a PCF control to an environment?",
+    "options": [
+      "pac auth create",
+      "npm start",
+      "pac pcf init",
+      "pac pcf push"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "pac pcf push imports the component directly to Dataverse.",
+    "id": 142,
+    "type": "single"
+  },
+  {
+    "category": "Power Apps",
+    "question": "Which tool helps diagnose canvas app performance issues?",
+    "options": [
+      "App Designer",
+      "Solution Checker",
+      "Power Apps Monitor",
+      "Plugin Registration Tool"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Power Apps Monitor tracks events and performance issues in canvas apps.",
+    "id": 143,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "How do you hide a field based on another field's value without code?",
+    "options": [
+      "Business Rule",
+      "Plug-in",
+      "Power Automate",
+      "JavaScript"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "Business rules can show/hide fields without code.",
+    "id": 144,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "At which stage should a plug-in run to validate data before a transaction starts?",
+    "options": [
+      "PreValidation",
+      "MainOperation",
+      "PostOperation",
+      "PreOperation"
+    ],
+    "correct": [
+      0
+    ],
+    "explanation": "PreValidation (Stage 10) occurs before the database transaction.",
+    "id": 145,
+    "type": "single"
+  },
+  {
+    "category": "Integrations",
+    "question": "Which service should be used for real-time, high-throughput event ingestion?",
+    "options": [
+      "Webhook",
+      "Azure Event Hub",
+      "Azure Service Bus",
+      "Azure SQL"
+    ],
+    "correct": [
+      1
+    ],
+    "explanation": "Azure Event Hub is designed for high-throughput, real-time data streaming.",
+    "id": 146,
+    "type": "single"
+  },
+  {
+    "category": "Technical Design",
+    "question": "What authentication method is best for server-to-server integration?",
+    "options": [
+      "Forms Auth",
+      "Anonymous",
+      "Basic Authentication",
+      "OAuth Client Credentials"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "OAuth Client Credentials (Service Principal) is the secure way for S2S integration.",
+    "id": 147,
+    "type": "single"
+  },
+  {
+    "category": "Extend the Platform",
+    "question": "Which request allows rolling back multiple operations if one fails?",
+    "options": [
+      "ExecuteMultipleRequest",
+      "UpsertRequest",
+      "CreateRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "ExecuteTransactionRequest executes operations in a single transaction.",
+    "id": 148,
+    "type": "single"
+  },
+  {
+    "category": "Build Solutions",
+    "question": "Which tool analyzes solution components for performance and stability issues?",
+    "options": [
+      "Power Automate",
+      "Plugin Profiler",
+      "Solution Checker",
+      "F12 Developer Tools"
+    ],
+    "correct": [
+      2
+    ],
+    "explanation": "Solution Checker performs static analysis on solutions.",
+    "id": 149,
+    "type": "single"
+  },
+  {
+    "category": "User Experience",
+    "question": "Which PCF method is called when the component is destroyed?",
+    "options": [
+      "updateView()",
+      "init()",
+      "getOutputs()",
+      "destroy()"
+    ],
+    "correct": [
+      3
+    ],
+    "explanation": "destroy() is called when the component is removed from the DOM.",
+    "id": 150,
+    "type": "single"
+  },
+  {
+    "question": "You need to display data from a Microsoft SQL database in a model-driven Power Apps form. The data must always be current. You must minimize the amount of data storage used. Which feature should you use?",
+    "options": [
+      "Dual-write",
+      "Virtual tables",
+      "Connectors",
+      "Activity tables"
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "Technical Design",
+    "explanation": "Virtual tables display data from external sources like SQL without storing data in Dataverse, keeping data current and minimizing storage.",
+    "id": 151
+  },
+  {
+    "question": "You have a model-driven app. You are customizing the main form for a Microsoft Dataverse table. Users must enter a value in a column named VPApprover when the value in a column named Revenue is greater than one million. You need to implement the logic. What should you use?",
+    "options": [
+      "Cloud flow",
+      "Business process flow",
+      "Workflow",
+      "Business rule"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Technical Design",
+    "explanation": "Business rules can enforce field requirements based on conditions directly on model-driven app forms without code.",
+    "id": 152
+  },
+  {
+    "question": "You are creating business logic that performs operations on data in Dataverse. You need to ensure the business logic is performed as part of a Dataverse transaction. Which two actions should you perform?",
+    "options": [
+      "Build a Dataverse plug-in.",
+      "Create a Power Automate cloud flow.",
+      "Register a webhook for an Azure function.",
+      "Register a service endpoint for Azure Service Bus."
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Only Dataverse plug-ins execute within the Dataverse transaction pipeline. Cloud flows, webhooks, and service endpoints are external and asynchronous.",
+    "id": 153
+  },
+  {
+    "question": "You are developing a model-driven app. The app must run specific code when a user selects a button on the ribbon. You need to ensure that only specific users can run the code. What should you use?",
+    "options": [
+      "Custom API",
+      "Custom process action",
+      "Classic workflow",
+      "Business rule"
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Custom API allows you to create actions that can be secured with privilege checks, ensuring only users with specific security roles can execute the code.",
+    "id": 154
+  },
+  {
+    "question": "You are developing a canvas app. You need to implement a custom visual in the app. Which approach should you use?",
+    "options": [
+      "Client scripting",
+      "Power Apps component framework code component",
+      "Web API",
+      "Liquid template"
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "Build Solutions",
+    "explanation": "Power Apps component framework (PCF) code components are the supported way to create custom visuals for canvas apps.",
+    "id": 155
+  },
+  {
+    "question": "A company has an internal system with a SOAP API. You need to create an integration between the system and Microsoft Dataverse. Which three integration options should you use?",
+    "options": [
+      "Azure function",
+      "Custom connector",
+      "Custom API",
+      "HTTP request",
+      "Business rule"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Azure functions, custom connectors, and HTTP requests can handle SOAP API integration. Business rules and Custom API cannot directly integrate with SOAP services.",
+    "id": 156
+  },
+  {
+    "question": "You are developing a plug-in that integrates with Microsoft Dataverse. You need to pass secured configuration data to the class constructor while registering the plug-in. Where is the secured configuration data stored?",
+    "options": [
+      "Table",
+      "JSON file",
+      "Config file",
+      "XML file"
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Secured configuration data for plug-ins is stored in the SdkMessageProcessingStepSecureConfig table in Dataverse, accessible only to System Administrators.",
+    "id": 157
+  },
+  {
+    "question": "You develop a plug-in. You need to test the plug-in in a development environment. What should you register first to run the plug-in?",
+    "options": [
+      "step",
+      "image",
+      "assembly",
+      "service endpoint"
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "You must register the assembly first using the Plug-in Registration Tool before you can register steps and images.",
+    "id": 158
+  },
+  {
+    "question": "A company has a Dataverse custom API message in Power Apps. You need to build business logic for the custom API and configure the custom API to run the business logic. Which three actions should you perform?",
+    "options": [
+      "Write a workflow extension.",
+      "Write a plug-in for the custom API.",
+      "Register a step by using the Plug-in Registration tool (PRT).",
+      "Update the custom API plug-in type in Power Apps.",
+      "Register the assembly using the Plug-in Registration tool (PRT).",
+      "Define an entity image using the Plug-in Registration tool (PRT)."
+    ],
+    "correct": [
+      1,
+      4,
+      3
+    ],
+    "type": "multi",
+    "category": "Extend the Platform",
+    "explanation": "You need to write a plug-in, register the assembly using PRT, and then update the custom API plug-in type in Power Apps to link the plug-in to the custom API.",
+    "id": 159
+  },
+  {
+    "question": "A company builds a custom API bound to a Microsoft Dataverse table. The company requires a Power Automate cloud flow that is triggered when the custom API is called. You need to configure the custom API. Which two actions should you perform?",
+    "options": [
+      "Register a step.",
+      "Create a catalog.",
+      "Create a category.",
+      "Create the custom API as a function.",
+      "Extend the BusinessEventContract class."
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "type": "multi",
+    "category": "Extend the Platform",
+    "explanation": "To trigger a cloud flow from a custom API, you need to register a step and create a catalog to make it available as a business event.",
+    "id": 160
+  },
+  {
+    "question": "A company has a plug-in that runs asynchronously in the PostOperation stage of a table update. The plug-in causes a timeout error. You need to improve the performance of the plug-in. What should you do?",
+    "options": [
+      "Define entity images.",
+      "Implement retry logic.",
+      "Enable Application Insights.",
+      "Change the execution mode to synchronous."
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Defining entity images reduces the number of queries the plug-in needs to make to retrieve entity data, improving performance and reducing timeout risk.",
+    "id": 161
+  },
+  {
+    "question": "A company uses Microsoft Power Platform. The Power Platform makers want to use data from a web app in canvas apps. The web app has an API secured by a Microsoft personal account. You need to configure authentication for a custom connector. Which two connection parameters should you configure?",
+    "options": [
+      "client ID",
+      "username",
+      "client secret",
+      "authorization URL",
+      "parameter location"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "For OAuth 2.0 authentication with Microsoft personal accounts, you need to configure client ID and client secret as connection parameters.",
+    "id": 162
+  },
+  {
+    "question": "A company uses Microsoft Power Platform. The Power Platform makers want to perform complex calculations in canvas apps. You build an Azure function to perform the calculations. You need to configure the Azure function and the authentication for the custom connector. Which three actions should you perform?",
+    "options": [
+      "Use Get function URL.",
+      "Configure the Azure function with a HTTP trigger.",
+      "Configure the Azure function with a queue trigger.",
+      "Register an application in Microsoft Entra ID.",
+      "Select API key for authentication type in the custom connector.",
+      "Select OAuth 2.0 for authentication type in the custom connector."
+    ],
+    "correct": [
+      0,
+      1,
+      4
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "You need to configure HTTP trigger for the Azure function, get its URL, and use API key authentication in the custom connector.",
+    "id": 163
+  },
+  {
+    "question": "You build a custom connector for an API that supports large messages with chunking. You need to enable the custom connector to support chunking. What should you do?",
+    "options": [
+      "Import the API into Azure API Management.",
+      "Run the pac connector update command for Microsoft Power Platform CLI.",
+      "Edit the connector's swagger file in the Swagger editor and add x-ms-capabilities.",
+      "Run the paconn validate --api-def command for Microsoft Power Platform Connectors CLI."
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "To enable chunking support in a custom connector, you need to edit the swagger definition file and add the x-ms-capabilities property.",
+    "id": 164
+  },
+  {
+    "question": "A company has a custom table named TableA that has a lookup field to the contact table (schemaname: pref_ContactId, logicalname: pref_contactid), related to another custom table named TableB. You are developing an onLoad JavaScript function for TableB using web API and OData. You need to check the response from web API. Which attribute should you check?",
+    "options": [
+      "pref_ContactId",
+      "pref_contactid",
+      "_pref_ContactId_value",
+      "_pref_contactid_value"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "When using Web API/OData, lookup fields are returned with underscore prefix, logical name (lowercase), and _value suffix: _pref_contactid_value.",
+    "id": 165
+  },
+  {
+    "question": "You are a developer for a Microsoft Power Platform implementation. You require JavaScript to make requests to the web API. You need to recommend an option to query data. Which two options should you recommend?",
+    "options": [
+      "FetchXML",
+      "OData v2.0",
+      "OData v4.0",
+      "QueryExpression"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "The Dataverse Web API supports FetchXML and OData v4.0 for querying data. OData v2.0 and QueryExpression are not supported by the Web API.",
+    "id": 166
+  },
+  {
+    "question": "A company plans to use Microsoft Power Platform. You need to write a JavaScript method that shows a message when a record has been created by impersonation. Which field should you use?",
+    "options": [
+      "ownerid",
+      "createdby",
+      "modifiedby",
+      "createdonbehalfby"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Technical Design",
+    "explanation": "The createdonbehalfby field identifies the delegate user who created the record on behalf of another user (impersonation).",
+    "id": 167
+  },
+  {
+    "question": "You use the Organization service to process data in Microsoft Dataverse tables. You have a regular process that updates thousands of rows on the Contact table from an external system. You need to use a method that has the highest throughput and will roll back all updates if any error occurs. Which method should you use?",
+    "options": [
+      "UpdateMultiple",
+      "ExecuteAsyncRequest",
+      "ExecuteMultipleRequest",
+      "ExecuteTransactionRequest"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "ExecuteTransactionRequest executes all operations in a single transaction and rolls back all changes if any operation fails.",
+    "id": 168
+  },
+  {
+    "question": "An organization uses Power Apps to track permits for new buildings. You must create a durable timer in the orchestrator function. What should you call?",
+    "options": [
+      "setTimeout() function",
+      "setInterval() function",
+      "Task.Delay() method",
+      "createTimer() method"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "In Azure Durable Functions, the createTimer() method is used to create durable timers in the orchestrator function.",
+    "id": 169
+  },
+  {
+    "question": "You develop a plug-in that creates and relates many records when a specific event occurs. During user acceptance testing, the plug-in generates timeout errors. You need to resolve the issue. What should you do?",
+    "options": [
+      "Configure the plug-in to run asynchronously.",
+      "Create an Azure Function that performs processing and call the function from the plug-in.",
+      "Create several threads in the plug-in.",
+      "Split the plug-in into two plug-ins that both run for the event."
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Configuring the plug-in to run asynchronously removes the 2-minute timeout limit and allows long-running operations to complete.",
+    "id": 170
+  },
+  {
+    "question": "A company uses Microsoft Power Platform. The company plans to use Azure Functions to perform process-heavy calculations. You need to identify the maximum time-out duration for a consumption plan. Which time-out duration should you identify?",
+    "options": [
+      "2 minutes",
+      "5 minutes",
+      "10 minutes",
+      "Unlimited"
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "The default timeout for Azure Functions Consumption plan is 5 minutes, but can be configured up to a maximum of 10 minutes.",
+    "id": 171
+  },
+  {
+    "question": "You have a Power Automate cloud flow. The flow has an action that calls an external API. You need to ensure that an immediate notification is sent if an error occurs in the action. Which two actions should you perform?",
+    "options": [
+      "Add an email notification action to the main branch of the flow.",
+      "Set the value of the Configure run after setting for the email notification step to is successful.",
+      "Add a parallel branch that contains an email notification action to the flow.",
+      "Set the value of the Configure run after setting for the email notification action to has failed."
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Add a parallel branch with an email notification and configure its 'run after' setting to 'has failed' to send notification on error.",
+    "id": 172
+  },
+  {
+    "question": "You have a Power Automate flow. The flow must run whenever a user adds a document to a SharePoint list and a column in a list named Status has a value. Which two expressions can you use in a trigger condition?",
+    "options": [
+      "@not(empty(triggerBody()?['Status']))",
+      "@(empty(triggerBody()?['Status'])",
+      "@not(equals(triggerBody()?['Status'],null))",
+      "@(equals(triggerBody()?['Status'],null)"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Both @not(empty(...)) and @not(equals(...,null)) check that the Status field has a value. The other options check for empty/null without negation.",
+    "id": 173
+  },
+  {
+    "question": "You create a Power Automate flow that gets data from Dataverse by using the List rows action. The result may contain more than 100,000 rows. You need to ensure the flow can handle all the results. Which three actions should you perform?",
+    "options": [
+      "Add a new string variable to store the skip token.",
+      "Activate pagination on the List rows action.",
+      "Create a do-while loop for as long as the skip token variable is not empty. Add the list row to the loop and use the stored skip token.",
+      "Add a new Boolean variable to store more records.",
+      "Fetch the skip token from the List rows action and store it in another variable."
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "For large datasets exceeding pagination limits, use skip tokens: store the skip token in a variable, create a do-while loop, and fetch/store the skip token from each List rows result.",
+    "id": 174
+  },
+  {
+    "question": "You are building a Power Automate cloud flow that is triggered when a Dataverse table row is updated. You need to configure the trigger so the flow only runs when a row is deactivated. Which two properties should you configure?",
+    "options": [
+      "Scope",
+      "Row filter",
+      "Row count",
+      "Column filter",
+      "FetchXML query"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Use Column filter to specify the statecode column, and Row filter to filter for the inactive state value to trigger only on deactivation.",
+    "id": 175
+  },
+  {
+    "question": "You are creating a cloud flow. You need to ensure that the flow action runs without a user account and accesses the Graph API without requiring credentials to be specified in the flow. Which three steps should you perform?",
+    "options": [
+      "Create a service principal in Microsoft Entra ID.",
+      "Create a custom security role in Microsoft Dataverse.",
+      "Store the service principal credentials inside Azure Key Vault.",
+      "Configure License to role mapping in the Dataverse environment settings.",
+      "Assign the service principal to an application user in the Microsoft Dataverse environment.",
+      "Configure Hierarchy security in the Dataverse environment settings."
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Create a service principal in Entra ID, store credentials in Azure Key Vault for security, and assign the service principal to an application user in Dataverse.",
+    "id": 176
+  },
+  {
+    "question": "You have an automated cloud flow that connects to a Microsoft Dataverse table named Cruises (schema: Cr8ec_cruises). You need to ensure that the flow runs only for rows with destination Cozumel and boat name Oasis. Which trigger condition should you use?",
+    "options": [
+      "@and(equals(triggerOutputs()?['cr8ec_destination'], 'Cozumel'), equals(triggerOutputs()?['cr8ec_boatname'],'Oasis'))",
+      "@and(equals(triggerOutputs()?['_cr8ec_destination_label'], 'Cozumel'), equals(triggerOutputs()?['_cr8ec_boatname_label'],'Oasis'))",
+      "@and(equals(triggerBody()?['cr8ec_destination'], 'Cozumel'), equals(triggerBody()?['cr8ec_boatname'],'Oasis'))",
+      "@and(equals(triggerBody()?['_cr8ec_destination_label'], 'Cozumel'), equals(triggerBody()?['_cr8ec_boatname_label'],'Oasis'))"
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "For choice columns in trigger conditions, use triggerOutputs() with the schema name directly to compare choice values.",
+    "id": 177
+  },
+  {
+    "question": "You develop a solution to integrate Dynamics 365 Customer Engagement (on-premises) data with custom code hosted on external services. You need to ensure that if any failure happens during the execution, the failure is reported to the app user immediately. What should you do?",
+    "options": [
+      "Use Azure Service Bus and set the execution mode to synchronous.",
+      "Use webhooks and set the execution mode to synchronous.",
+      "Use webhooks and set the execution mode to asynchronous.",
+      "Use Azure Service Bus and enable the auto-forwarding feature."
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "Webhooks with synchronous execution mode will report failures immediately to the user. Asynchronous mode would not provide immediate feedback.",
+    "id": 178
+  },
+  {
+    "question": "You manage a Microsoft Dataverse instance. You need to use synchronous processing to publish events from the Microsoft Dataverse instance to an external service. What should you use?",
+    "options": [
+      "Azure Service Bus",
+      "Webhook",
+      "Azure Event Grid",
+      "Azure Event Hub"
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "Webhooks support synchronous processing for publishing Dataverse events to external services. Azure Service Bus, Event Grid, and Event Hub are asynchronous.",
+    "id": 179
+  },
+  {
+    "question": "You are registering a webhook to publish Microsoft Dataverse events by using the Plug-in Registration Tool. You need to ensure that the webhook is triggered only when a specific column value is updated. Which two actions should you perform?",
+    "options": [
+      "Register a new step.",
+      "Register a new image.",
+      "Configure Filtering Attributes.",
+      "Configure the execution stage.",
+      "Configure Pre Image and Post Image."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "type": "multi",
+    "category": "Extend the Platform",
+    "explanation": "Register a new step for the webhook and configure Filtering Attributes to specify which column changes should trigger the webhook.",
+    "id": 180
+  },
+  {
+    "question": "An organization uses Microsoft Dataverse. You need to synchronize data from an external system. If a record exists, update it; if not, create a new record. Which operation should you use?",
+    "options": [
+      "Create",
+      "Update",
+      "Upsert",
+      "SetState"
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Extend the Platform",
+    "explanation": "Upsert (Update + Insert) checks if the record exists and updates it, or creates a new record if it doesn't exist.",
+    "id": 181
+  },
+  {
+    "question": "You are configuring a Power Apps model-driven app. You create a query to confirm data sync with external systems. The query must return the total number of changed rows with data sorted in descending order. When you run the query, it returns an error. What is the reason for the error?",
+    "options": [
+      "The Web API request includes the odata.track-changes header.",
+      "The Web API request includes the $count query parameter.",
+      "The Web API header includes the $orderby query parameter.",
+      "The Web API request includes delta links."
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Integrations",
+    "explanation": "The $orderby query parameter is not supported with change tracking (odata.track-changes). This combination causes an error.",
+    "id": 182
+  },
+  {
+    "question": "You are building integrations from external systems that require authentication to Microsoft Dataverse Web API. You need to configure authentication. Which three steps should you perform?",
+    "options": [
+      "Create non-interactive users in Dataverse.",
+      "Create app registrations in Microsoft Entra ID.",
+      "Create application users in Dataverse.",
+      "Create Enterprise applications in Microsoft Entra ID.",
+      "Create and select custom security roles.",
+      "Select the Basic User security role."
+    ],
+    "correct": [
+      1,
+      2,
+      4
+    ],
+    "type": "multi",
+    "category": "Integrations",
+    "explanation": "Create app registrations in Entra ID, create application users in Dataverse, and assign custom security roles for proper authentication and authorization.",
+    "id": 183
+  },
+  {
+    "question": "A company uses Microsoft Power Platform. The company plans to use Microsoft Power Platform pipelines to deploy solutions from development to test and production environments by using a separate host environment. You need to configure the environments. Which two environments should you configure?",
+    "options": [
+      "default",
+      "development",
+      "host",
+      "production",
+      "test"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "type": "multi",
+    "category": "Build Solutions",
+    "explanation": "You need to configure the host environment (where pipelines run) and production environment as target. Development is the source, not needing special pipeline config.",
+    "id": 184
+  },
+  {
+    "question": "You manage the ALM process. During a solution restructuring, you merge and consolidate several managed solutions. When you attempt to uninstall an old managed solution, you receive a dependency error. You need to remove the dependency. Which three actions should you perform?",
+    "options": [
+      "Identify the topmost solution on the dependent component in the target organization.",
+      "Uninstall the solution layer with the dependency from the target environment.",
+      "Export the new version as managed and upgrade the solution in the target environment.",
+      "Export the new version as unmanaged and update the solution in the target environment.",
+      "Prepare a new version of the solution in the development environment that removes or updates the dependency."
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "type": "multi",
+    "category": "Build Solutions",
+    "explanation": "Identify the dependent component, prepare a new version removing the dependency in dev, then export as managed and upgrade in target environment.",
+    "id": 185
+  },
+  {
+    "question": "You plan to delete a table in a Microsoft Power Platform solution. You need to determine whether components are affected by the table deletion. Which two types of components should you inspect?",
+    "options": [
+      "Microsoft Word template",
+      "Microsoft Power Automate cloud flow",
+      "Plug-in step for an assembly",
+      "Web resource used in a form"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "type": "multi",
+    "category": "Build Solutions",
+    "explanation": "Power Automate cloud flows and plug-in steps directly reference tables and would be affected by table deletion.",
+    "id": 186
+  },
+  {
+    "question": "You are assisting with the automation of ALM by using Azure DevOps pipelines. You need to pre-populate an environment variable with specific details for the target environments. What should you do?",
+    "options": [
+      "Run the Microsoft Power Platform Checker.",
+      "Generate a deployment settings file.",
+      "Add a reference by using the Power Apps CLI.",
+      "Remove the current value before exporting the solution."
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "Build Solutions",
+    "explanation": "A deployment settings file allows you to pre-populate environment variables with environment-specific values during automated deployments.",
+    "id": 187
+  },
+  {
+    "question": "A company uses managed solutions. A developer installs Solution1 (PublisherA), Solution2 (PublisherB), Solution3 (PublisherA) into production, all with changes to Account table. The developer edits the account form directly in production. After importing new Solution3, users report form changes are not displayed. What should you delete?",
+    "options": [
+      "Solution1",
+      "Solution2",
+      "Solution3",
+      "Active unmanaged layer"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Build Solutions",
+    "explanation": "Direct edits in production create an active unmanaged layer that overrides managed solution changes. Deleting the unmanaged layer allows the managed solution changes to take effect.",
+    "id": 188
+  },
+  {
+    "question": "You have a model-driven app. Users must be able to launch a third-party application by selecting a button on the command bar. You need to edit the ribbon to add the button. What are two possible ways to achieve this goal?",
+    "options": [
+      "Create JavaScript code.",
+      "Use Ribbon Workbench.",
+      "Use a business rule.",
+      "Customize the command bar using command designer."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "type": "multi",
+    "category": "User Experience",
+    "explanation": "Ribbon Workbench and the modern command designer are both valid ways to customize the command bar and add buttons.",
+    "id": 189
+  },
+  {
+    "question": "You are developing a model-driven app. You need to use the client API to extend the behavior of the app. To which two events can you attach client script in the Form editor?",
+    "options": [
+      "OnSave",
+      "PreSearch",
+      "PostSearch",
+      "OnLoad"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "type": "multi",
+    "category": "User Experience",
+    "explanation": "In the Form editor, you can attach client scripts to OnSave and OnLoad form events. PreSearch is configured via code, PostSearch doesn't exist.",
+    "id": 190
+  },
+  {
+    "question": "You are developing event handlers for form events. You need to register the event handlers. Which two options can you use?",
+    "options": [
+      "Form properties",
+      "Code",
+      "Business rules",
+      "Cloud flows"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "type": "multi",
+    "category": "User Experience",
+    "explanation": "Event handlers can be registered through Form properties (declarative) or through Code (programmatic using addOnLoad, addOnSave, etc.).",
+    "id": 191
+  },
+  {
+    "question": "You are developing a Power Apps model-driven app. You need to ensure that when a button is selected, the action from the primary command is executed. Which command type should you implement?",
+    "options": [
+      "Quick actions",
+      "Split button",
+      "Dropdown",
+      "Group"
+    ],
+    "correct": [
+      1
+    ],
+    "type": "single",
+    "category": "User Experience",
+    "explanation": "A Split button has a primary action that executes when the main button area is clicked, plus a dropdown for additional options.",
+    "id": 192
+  },
+  {
+    "question": "You create a Power Apps component framework (PCF) component by using Visual Studio Code. You receive 'Missing required tool: MSBuild.exe/dotnet.exe' error when packaging. Which two actions should you perform?",
+    "options": [
+      "Add MSBuild.exe/dotnet.exe in the Path environment variable.",
+      "Run the msbuild /t:restore command from within the cdsproj directory.",
+      "Use a Visual Studio Code developer command prompt.",
+      "Run the dotnet build command from within the cdsproj directory."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "type": "multi",
+    "category": "Build Solutions",
+    "explanation": "Either add MSBuild.exe/dotnet.exe to the PATH environment variable, or use a Visual Studio developer command prompt which has these tools pre-configured.",
+    "id": 193
+  },
+  {
+    "question": "You are using Power Apps component framework to create code components for a canvas app. You need to bundle all code component elements into a solution file. Which command should you use to generate a zip file from the solution project?",
+    "options": [
+      "msbuild /t:build /restore",
+      "msbuild",
+      "msbuild /p:configuration=Release",
+      "msbuild /t:rebuild"
+    ],
+    "correct": [
+      0
+    ],
+    "type": "single",
+    "category": "Build Solutions",
+    "explanation": "msbuild /t:build /restore builds the solution project and generates the solution zip file, restoring NuGet packages first.",
+    "id": 194
+  },
+  {
+    "question": "You are developing an interactive new code component by using the Power Apps component framework. You need to ensure that the output value provided in a textbox is updated in other components. Which two actions should you perform?",
+    "options": [
+      "Create an event handler for the textbox for its change event.",
+      "Create an event handler for the other components for its change event.",
+      "Invoke the notifyOutputChanged method from the init method.",
+      "Invoke the updateView method from the event handler.",
+      "Invoke the notifyOutputChanged method from the event handler.",
+      "Invoke the notifyOutputChanged method from the updateView method."
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "type": "multi",
+    "category": "Build Solutions",
+    "explanation": "Create a change event handler for the textbox and invoke notifyOutputChanged from that event handler to notify the framework that output has changed.",
+    "id": 195
+  },
+  {
+    "question": "You develop a canvas app to manage time off requests. The Request table has a lookup to AbsenceType. You need to ensure users only select active absence types from a drop-down list. What should you do?",
+    "options": [
+      "Add Filter('Absence Types', 'Absence Types (Views)'.'Active Absence Types') to the onSelect property",
+      "Add 'Absence Types' to the onSelect property",
+      "Add Filter('Absence Types', 'Absence Types (Views)'.'Active Absence Types') to the Items property",
+      "Add 'Absence Types' to the Items property"
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Power Apps",
+    "explanation": "Use the Items property (not onSelect) with a Filter expression to show only active absence types from the Dataverse view.",
+    "id": 196
+  },
+  {
+    "question": "You develop a cloud flow named Get Customers. You add the flow to a canvas app. You need to pass two values from the app to the flow. Which three steps should you perform?",
+    "options": [
+      "Use the Manually trigger a flow trigger.",
+      "Use the When Power Apps calls a flow (V2) trigger.",
+      "Configure trigger conditions in the trigger.",
+      "Create two parameters in the trigger.",
+      "Create two variables in the flow.",
+      "Use GetCustomers.Run in the canvas app."
+    ],
+    "correct": [
+      1,
+      3,
+      5
+    ],
+    "type": "multi",
+    "category": "Power Apps",
+    "explanation": "Use the 'When Power Apps calls a flow (V2)' trigger, create two parameters in the trigger for the values, and call GetCustomers.Run from the canvas app.",
+    "id": 197
+  },
+  {
+    "question": "You manage a canvas app. You are troubleshooting the app startup performance issue by using Monitor. You need to display a custom message in Monitor. Which function should you use?",
+    "options": [
+      "Error",
+      "Notify",
+      "Log",
+      "Trace"
+    ],
+    "correct": [
+      3
+    ],
+    "type": "single",
+    "category": "Power Apps",
+    "explanation": "The Trace function is used to display custom messages in the Monitor tool for debugging and troubleshooting canvas apps.",
+    "id": 198
+  },
+  {
+    "question": "You develop a model-driven app. You need to diagnose and troubleshoot an issue by using Monitor. Which two type of events can you monitor?",
+    "options": [
+      "Screen load metrics",
+      "Network",
+      "Page navigation",
+      "User actions"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "type": "multi",
+    "category": "Power Apps",
+    "explanation": "Monitor for model-driven apps can track Network calls and Page navigation events. Screen load metrics and user actions are not directly monitored.",
+    "id": 199
+  },
+  {
+    "question": "You create a form for a model-driven app and add a control. You enable the control but users report it is disabled. You need to identify the root cause using Monitor. What should you do?",
+    "options": [
+      "Open the FormControls operation and check the value of the DisableFormControl property.",
+      "Open the ControlStateChange.hidden operation and review the last logged operation.",
+      "Open the ControlStateChange.disabled operation and review the last logged operation.",
+      "Open the FormControls operation and check the value of the Disabled property."
+    ],
+    "correct": [
+      2
+    ],
+    "type": "single",
+    "category": "Power Apps",
+    "explanation": "The ControlStateChange.disabled operation in Monitor shows what caused the control to become disabled, including the last operation that changed its state.",
+    "id": 200
+  }
+]

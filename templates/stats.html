@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Thống kê - PL-400 Quiz{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Thống kê</h1>
+    <p class="subtitle">Phân tích kết quả luyện thi</p>
+</div>
+
+{% if stats.total_quizzes == 0 %}
+<div class="empty-state glass">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <h3>Chưa có dữ liệu</h3>
+    <p>Hãy hoàn thành ít nhất một bài quiz để xem thống kê.</p>
+    <a href="{{ url_for('quiz') }}" class="btn btn-primary">Bắt đầu Quiz</a>
+</div>
+{% else %}
+<div class="stats-grid">
+    <div class="stat-card glass">
+        <div class="stat-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="stat-info">
+            <span class="stat-value counter" data-target="{{ stats.total_quizzes }}">0</span>
+            <span class="stat-label">Tổng lần thi</span>
+        </div>
+    </div>
+    <div class="stat-card glass">
+        <div class="stat-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="stat-info">
+            <span class="stat-value counter" data-target="{{ stats.avg_score }}">0</span><span class="stat-value">%</span>
+            <span class="stat-label">Điểm trung bình</span>
+        </div>
+    </div>
+    <div class="stat-card glass">
+        <div class="stat-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+        </div>
+        <div class="stat-info">
+            <span class="stat-value counter" data-target="{{ stats.max_score }}">0</span><span class="stat-value">%</span>
+            <span class="stat-label">Điểm cao nhất</span>
+        </div>
+    </div>
+    <div class="stat-card glass">
+        <div class="stat-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="stat-info">
+            <span class="stat-value counter" data-target="{{ stats.pass_rate }}">0</span><span class="stat-value">%</span>
+            <span class="stat-label">Tỷ lệ đạt</span>
+        </div>
+    </div>
+</div>
+
+<div class="charts-grid">
+    <div class="chart-card glass">
+        <h3>Điểm số qua các lần thi</h3>
+        <canvas id="scoreChart"></canvas>
+    </div>
+    <div class="chart-card glass">
+        <h3>Tỷ lệ Đạt / Không đạt</h3>
+        <canvas id="passChart"></canvas>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if stats.total_quizzes > 0 %}
+<script>
+    const STATS_DATA = {
+        scores: {{ stats.scores | tojson }},
+        dates: {{ stats.dates | tojson }},
+        pass_count: {{ stats.pass_count }},
+        fail_count: {{ stats.fail_count }}
+    };
+</script>
+<script src="{{ url_for('static', filename='js/stats.js') }}"></script>
+{% endif %}
+{% endblock %}

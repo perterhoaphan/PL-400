@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Làm Quiz - PL-400{% endblock %}
+
+{% block content %}
+<!-- Start Screen -->
+<div class="quiz-start-screen" id="quizStartScreen">
+    <div class="start-card glass">
+        <div class="start-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h1>Bài thi PL-400</h1>
+        <p class="start-subtitle">Microsoft Power Platform Developer</p>
+
+        <div class="start-info-grid">
+            <div class="start-info-item">
+                <span class="info-number">{{ questions|length }}</span>
+                <span class="info-label">Câu hỏi</span>
+            </div>
+            <div class="start-info-item">
+                <span class="info-number">80%</span>
+                <span class="info-label">Điểm đạt</span>
+            </div>
+            <div class="start-info-item">
+                <span class="info-number">∞</span>
+                <span class="info-label">Thời gian</span>
+            </div>
+        </div>
+
+        <div class="start-rules">
+            <h3>Lưu ý</h3>
+            <ul>
+                <li>Bài thi gồm câu hỏi <strong>chọn một</strong> và <strong>chọn nhiều</strong> đáp án</li>
+                <li>Kết quả chỉ được lưu khi bạn <strong>nộp bài</strong></li>
+                <li>Bạn có thể quay lại xem và sửa câu trả lời trước khi nộp</li>
+                <li>Điểm đạt tối thiểu: <strong>80%</strong> (tương đương 800/1000)</li>
+            </ul>
+        </div>
+
+        <button class="btn btn-primary btn-lg" id="btnStartQuiz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Bắt đầu làm bài
+        </button>
+    </div>
+</div>
+
+<!-- Quiz Container (hidden until Start) -->
+<div class="quiz-container" id="quizContainer" style="display:none">
+    <div class="quiz-header glass">
+        <div class="quiz-progress-info">
+            <span id="questionCounter">Câu 1 / {{ questions|length }}</span>
+            <span class="quiz-category" id="questionCategory"></span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <div class="quiz-body">
+        <div class="question-panel glass" id="questionPanel">
+            {% for q in questions %}
+            <div class="question-slide" data-index="{{ loop.index0 }}" data-id="{{ q.id }}" data-type="{{ q.type }}" style="display: {% if loop.index0 == 0 %}block{% else %}none{% endif %}">
+                <div class="question-badge">
+                    <span class="q-number">Câu {{ loop.index }}</span>
+                    {% if q.type == 'multi' %}
+                    <span class="q-type multi">Chọn nhiều đáp án</span>
+                    {% else %}
+                    <span class="q-type single">Chọn một đáp án</span>
+                    {% endif %}
+                </div>
+                <h2 class="question-text">{{ q.question }}</h2>
+                <div class="options-list">
+                    {% for opt in q.options %}
+                    <label class="option-item" data-qid="{{ q.id }}" data-oidx="{{ loop.index0 }}">
+                        {% if q.type == 'multi' %}
+                        <input type="checkbox" name="q_{{ q.id }}" value="{{ loop.index0 }}">
+                        <span class="option-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        {% else %}
+                        <input type="radio" name="q_{{ q.id }}" value="{{ loop.index0 }}">
+                        <span class="option-radio"></span>
+                        {% endif %}
+                        <span class="option-letter">{{ ['A','B','C','D'][loop.index0] }}</span>
+                        <span class="option-text">{{ opt }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="question-nav-sidebar glass">
+            <h3>Danh sách câu hỏi</h3>
+            <div class="question-grid" id="questionGrid">
+                {% for q in questions %}
+                <button class="q-dot {% if loop.index0 == 0 %}current{% endif %}" data-index="{{ loop.index0 }}">{{ loop.index }}</button>
+                {% endfor %}
+            </div>
+            <div class="nav-legend">
+                <span class="legend-item"><span class="dot current-dot"></span> Đang xem</span>
+                <span class="legend-item"><span class="dot answered-dot"></span> Đã trả lời</span>
+                <span class="legend-item"><span class="dot unanswered-dot"></span> Chưa trả lời</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-footer glass">
+        <button class="btn btn-outline" id="btnPrev" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Câu trước
+        </button>
+        <button class="btn btn-primary" id="btnNext">
+            Câu tiếp
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="btn btn-success" id="btnSubmit" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Nộp bài
+        </button>
+    </div>
+</div>
+
+<!-- Submit Modal -->
+<div class="modal-overlay" id="submitModal" style="display:none">
+    <div class="modal glass">
+        <h3>Xác nhận nộp bài</h3>
+        <p>Bạn đã trả lời <strong><span id="answeredCount">0</span>/{{ questions|length }}</strong> câu hỏi.</p>
+        <p id="unansweredWarning" class="warning-text" style="display:none">⚠️ Còn <span id="unansweredCount">0</span> câu chưa trả lời!</p>
+        <div class="modal-actions">
+            <button class="btn btn-outline" id="btnCancelSubmit">Quay lại</button>
+            <button class="btn btn-success" id="btnConfirmSubmit">Nộp bài</button>
+        </div>
+    </div>
+</div>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay" style="display:none">
+    <div class="spinner"></div>
+    <p>Đang chấm bài...</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const TOTAL_QUESTIONS = {{ questions|length }};
+</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

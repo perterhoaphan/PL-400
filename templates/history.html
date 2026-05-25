@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Lịch sử - PL-400 Quiz{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Lịch sử thi</h1>
+    <p class="subtitle">Xem lại tất cả các lần làm bài</p>
+</div>
+
+{% if sessions|length == 0 %}
+<div class="empty-state glass">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <h3>Chưa có lịch sử</h3>
+    <p>Bạn chưa làm bài thi nào. Hãy bắt đầu quiz đầu tiên!</p>
+    <a href="{{ url_for('quiz') }}" class="btn btn-primary">Bắt đầu Quiz</a>
+</div>
+{% else %}
+<div class="history-table-wrapper glass">
+    <table class="history-table" id="historyTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ngày thi</th>
+                <th>Số câu đúng</th>
+                <th>Điểm</th>
+                <th>Kết quả</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in sessions %}
+            <tr class="fade-in" style="animation-delay: {{ loop.index0 * 0.05 }}s" id="row-{{ s.id }}">
+                <td>{{ loop.index }}</td>
+                <td>{{ s.start_time[:16].replace('T', ' ') }}</td>
+                <td>{{ s.correct_answers }} / {{ s.total_questions }}</td>
+                <td>
+                    <span class="score-badge {{ 'pass' if s.passed else 'fail' }}">{{ s.score }}%</span>
+                </td>
+                <td>
+                    {% if s.passed %}
+                    <span class="status-badge pass">ĐẠT</span>
+                    {% else %}
+                    <span class="status-badge fail">KHÔNG ĐẠT</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <a href="{{ url_for('result', session_id=s.id) }}" class="btn btn-sm btn-outline">Xem</a>
+                        <button class="btn btn-sm btn-danger" onclick="deleteSession({{ s.id }})">Xóa</button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+function deleteSession(sessionId) {
+    if (!confirm('Bạn có chắc muốn xóa lịch sử này?')) return;
+
+    fetch('/history/delete/' + sessionId, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(response => {
+        if (response.ok) {
+            const row = document.getElementById('row-' + sessionId);
+            if (row) {
+                row.style.transition = 'opacity 0.3s, transform 0.3s';
+                row.style.opacity = '0';
+                row.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    row.remove();
+                    // Check if table is empty
+                    const tbody = document.querySelector('.history-table tbody');
+                    if (tbody && tbody.children.length === 0) {
+                        location.reload();
+                    }
+                }, 300);
+            }
+        } else {
+            alert('Lỗi khi xóa. Vui lòng thử lại.');
+        }
+    })
+    .catch(() => alert('Lỗi khi xóa. Vui lòng thử lại.'));
+}
+</script>
+{% endblock %}
